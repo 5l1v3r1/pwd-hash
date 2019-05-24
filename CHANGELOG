@@ -1,0 +1,16 @@
+pwd-hash CHANGELOG
+------------------
+
+2011/04/25 - v2.0
+
+  * check arguments with getopt_long instead of dirty if()
+  * Add option (-n, -noecho) to disable local echo on stdin
+  * Add option (--salt) to force a specific string for the salt
+  * Set default encoding scheme to MD5 (most popular) when none is
+    specified on the command line
+  * Generate the salt string by using "/dev/urandom" instead of using
+    rand() function
+
+2009/06/08 - v1.0 
+
+  * Initial version

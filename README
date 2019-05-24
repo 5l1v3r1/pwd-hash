@@ -1,0 +1,60 @@
+
+Password Hashing tool (pwd-hash) version 2.0
+--------------------------------------------
+
+1) Introduction
+
+   Pwd-hash displays a password hash of a given string on stdin.  The
+   algorithm used for encryption must be specified in argument (default is
+   MD5). 
+
+   The following encryption schemes can be used:
+
+     - Traditional DES-based scheme
+     - MD5-based scheme (6 bytes salt) used for grub 
+     - MD5-based scheme (8 bytes salt)
+     - SHA-based scheme (SHA-512), libc version >= 2.7
+
+2) Installation
+
+   $ tar xzvf pwd-hash-<version>.tgz ; cd pwd-hash-<version>
+   $ make ; make install
+
+3) How to use it ?
+
+   Using pipeline:
+
+     $ echo MyPasSwd | pwd-hash --des
+     ZBw2J4E4HSoNU
+
+   Interactive usage:
+
+     $ pwd-hash --grub
+     MyGrubPassw0rd
+     $1$8Zr3Uz$Wj5RwlM831qYjKpaRijh0.
+
+   To do not display clear password on your terminal, use the "--noecho"
+   (-n) option: 
+
+     $ pwd-hash -n --md5
+     $1$xz8FmRfw$n0/NbiSlDlVagK6eSZHpO1
+
+   A pre-defined salt can be specified instead of generating a random salt:
+
+     $ echo "p4ssw0rd" | pwd-hash --salt "AL" --des
+     ALAInZSoRAjso
+
+4) Author
+
+   Tool written by vladz@devzero.fr.  Feel free to send comments or bugs
+   and as far as possible, use encryption (keyID 0x8F7E2D3C on
+   pgp.mit.edu).
+
+   You can also check for tool updates by visiting my personal website 
+   (http://vladz.devzero.fr).
+
+5) License
+
+   GNU GENERAL PUBLIC LICENSE Version 3
+   http://www.gnu.org/licenses/gpl.html
+
